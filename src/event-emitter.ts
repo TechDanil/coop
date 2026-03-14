@@ -33,6 +33,8 @@ export class EventEmitter<Value = unknown, Result = unknown, Error = unknown> {
           return Promise.resolve({ done: true, value: undefined })
         }
 
+        this.#promise = Promise.withResolvers();
+
         const cleanup = () => {
           this.off('data', onData)
           this.off('error', onError)
