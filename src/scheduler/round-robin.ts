@@ -1,4 +1,4 @@
-import type { IScheduleOptions, IScheduler, JobResult } from "./type";
+import type { IScheduleOptions, IScheduler, JobResult } from "./types";
 
 export class RoundRobinScheduler implements IScheduler {
   #running = false
