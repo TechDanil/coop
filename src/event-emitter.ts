@@ -1,12 +1,12 @@
-type Event = "data" | "error"
+export type Event = "data" | "error"
 
-type DataResult<Value = unknown, Result = unknown> = { data: false; value: Value } | { done: true; value: Result }
+export type DataResult<Value = unknown, Result = unknown> = { done: false; value: Value } | { done: true; value: Result }
 
-type ErrorResult<Error = unknown> = { done: true; error: Error; value: undefined }
+export type ErrorResult<Error = unknown> = { done: true; error: Error; value: undefined }
 
-type DataHandler<Value, Result> = (data: DataResult<Value, Result>) => void
+export type DataHandler<Value, Result> = (data: DataResult<Value, Result>) => void
 
-type ErrorHandler<Error> = (error: Error) => void
+export type ErrorHandler<Error> = (error: Error) => void
 
 export class EventEmitter<Value = unknown, Result = unknown, Error = unknown> {
   #handlers = {
